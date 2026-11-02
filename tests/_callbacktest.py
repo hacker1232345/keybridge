@@ -20,8 +20,8 @@ import time
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(BASE)   # keybridge.py 与配置所在的上一级目录
-sys.path.insert(0, ROOT)
+ROOT = os.path.dirname(BASE)              # 仓库根目录
+sys.path.insert(0, os.path.join(ROOT, "src"))   # keybridge.py 在 src/ 里
 
 import keybridge as kb                                                    # noqa: E402
 

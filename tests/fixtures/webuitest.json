@@ -1,0 +1,44 @@
+{
+  "logLevel": "DEBUG",
+  "logFile": "logs/webuitest.log",
+  "httpTrigger": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8793
+  },
+  "webui": {
+    "enabled": true,
+    "port": 8793,
+    "openBrowser": false
+  },
+  "hotkeys": [
+    {
+      "id": "web-a",
+      "name": "网页测试A",
+      "keys": [
+        "F13"
+      ],
+      "trigger": "down",
+      "swallow": true,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo WEBUI-A>>D:\\kb-webui-test.log"
+      }
+    },
+    {
+      "id": "web-b",
+      "name": "网页测试B",
+      "keys": [
+        "CTRL",
+        "ALT",
+        "K"
+      ],
+      "trigger": "up",
+      "action": {
+        "type": "run",
+        "program": "notepad.exe"
+      }
+    }
+  ]
+}

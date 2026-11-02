@@ -1,0 +1,57 @@
+{
+  "logLevel": "INFO",
+  "logFile": "logs/prodtest.log",
+  "httpTrigger": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8795
+  },
+  "webui": {
+    "enabled": true,
+    "port": 8795,
+    "openBrowser": false
+  },
+  "hotkeys": [
+    {
+      "id": "prod-notepad",
+      "name": "F13 → 打开记事本",
+      "keys": [
+        "F13"
+      ],
+      "trigger": "down",
+      "swallow": true,
+      "action": {
+        "type": "run",
+        "program": "notepad.exe"
+      }
+    },
+    {
+      "id": "prod-file",
+      "name": "F14 → 追加一行到日志文件",
+      "keys": [
+        "F14"
+      ],
+      "trigger": "down",
+      "swallow": true,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo PROD-HIT-%RANDOM%>>D:\\kb-prod-test.log"
+      }
+    },
+    {
+      "id": "prod-code",
+      "name": "F15 → 跑一段内联 Python",
+      "keys": [
+        "F15"
+      ],
+      "trigger": "down",
+      "swallow": true,
+      "action": {
+        "type": "code",
+        "lang": "python",
+        "code": "import datetime,pathlib\npathlib.Path(r\"D:\\kb-prod-test.log\").open(\"a\",encoding=\"utf-8\").write(\"[py] \"+str(datetime.datetime.now())+\"\\n\")"
+      }
+    }
+  ]
+}

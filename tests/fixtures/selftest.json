@@ -1,0 +1,164 @@
+{
+  "_说明": "动作层自测配置，不用于日常运行",
+  "logLevel": "DEBUG",
+  "hotkeys": [
+    {
+      "id": "t-run",
+      "name": "run 通道",
+      "keys": [
+        "F13"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "run",
+        "program": "cmd.exe",
+        "args": [
+          "/c",
+          "echo RUN-OK %TIME%>>D:\\keybridge-test.log"
+        ]
+      }
+    },
+    {
+      "id": "t-shell-cmd",
+      "name": "shell/cmd 通道",
+      "keys": [
+        "F14"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo SHELL-CMD-OK %TIME%>>D:\\keybridge-test.log"
+      }
+    },
+    {
+      "id": "t-shell-ps",
+      "name": "shell/powershell 通道",
+      "keys": [
+        "F15"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "shell",
+        "shell": "powershell",
+        "command": "Add-Content -Path 'D:\\keybridge-test.log' -Value ('SHELL-PS-OK ' + (Get-Date -Format o))"
+      }
+    },
+    {
+      "id": "t-shell-pwsh",
+      "name": "shell/pwsh 通道",
+      "keys": [
+        "F21"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "shell",
+        "shell": "pwsh",
+        "command": "Add-Content -Path 'D:\\keybridge-test.log' -Value ('SHELL-PWSH-OK ' + (Get-Date -Format o))"
+      }
+    },
+    {
+      "id": "t-script",
+      "name": "script 通道",
+      "keys": [
+        "F16"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "script",
+        "file": "scripts/demo.py",
+        "args": [
+          "from-test"
+        ]
+      }
+    },
+    {
+      "id": "t-script-ps1",
+      "name": "script/ps1 通道",
+      "keys": [
+        "F22"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "script",
+        "file": "scripts/demo.ps1",
+        "args": [
+          "from-test"
+        ]
+      }
+    },
+    {
+      "id": "t-code",
+      "name": "code 通道(python)",
+      "keys": [
+        "F17"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "code",
+        "lang": "python",
+        "code": "import datetime,pathlib\npathlib.Path(r'D:\\keybridge-test.log').open('a',encoding='utf-8').write('CODE-OK '+str(datetime.datetime.now())+chr(10))\n"
+      }
+    },
+    {
+      "id": "t-code-ps",
+      "name": "code 通道(powershell)",
+      "keys": [
+        "F23"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "code",
+        "lang": "powershell",
+        "code": "Add-Content -Path 'D:\\keybridge-test.log' -Value ('CODE-PS-OK ' + (Get-Date -Format o))\n"
+      }
+    },
+    {
+      "id": "t-url-file",
+      "name": "url 通道（本地文件）",
+      "keys": [
+        "F18"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "url",
+        "url": "D:\\keybridge-test.log"
+      }
+    },
+    {
+      "id": "t-seq",
+      "name": "sequence 通道",
+      "keys": [
+        "F19"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "sequence",
+        "steps": [
+          {
+            "type": "shell",
+            "shell": "cmd",
+            "command": "echo SEQ-STEP1>>D:\\keybridge-test.log"
+          },
+          {
+            "type": "shell",
+            "shell": "cmd",
+            "command": "echo SEQ-STEP2>>D:\\keybridge-test.log"
+          }
+        ]
+      }
+    },
+    {
+      "id": "t-keys",
+      "name": "keys 通道（模拟按键）",
+      "keys": [
+        "F20"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "keys",
+        "keys": "{F24}"
+      }
+    }
+  ]
+}

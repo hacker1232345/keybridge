@@ -1,0 +1,122 @@
+{
+  "_说明": "钩子链路测试配置：每个动作往同一个文件写一行，便于断言",
+  "logFile": "logs/hooktest.log",
+  "logLevel": "DEBUG",
+  "httpTrigger": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8791
+  },
+  "hotkeys": [
+    {
+      "id": "k-f13",
+      "name": "F13 单击",
+      "keys": [
+        "F13"
+      ],
+      "trigger": "down",
+      "swallow": true,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-F13>>D:\\kb-hook-test.log"
+      }
+    },
+    {
+      "id": "k-f14",
+      "name": "F14 单击",
+      "keys": [
+        "F14"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-F14>>D:\\kb-hook-test.log"
+      }
+    },
+    {
+      "id": "k-ctrl-alt-k",
+      "name": "Ctrl+Alt+K",
+      "keys": [
+        "Ctrl",
+        "Alt",
+        "K"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-CTRL-ALT-K>>D:\\kb-hook-test.log"
+      }
+    },
+    {
+      "id": "k-f15-up",
+      "name": "F15 抬起触发",
+      "keys": [
+        "F15"
+      ],
+      "trigger": "up",
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-F15-UP>>D:\\kb-hook-test.log"
+      }
+    },
+    {
+      "id": "k-f16-long",
+      "name": "F16 长按 0.5s",
+      "keys": [
+        "F16"
+      ],
+      "trigger": "long",
+      "longpress_ms": 500,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-F16-LONG>>D:\\kb-hook-test.log"
+      }
+    },
+    {
+      "id": "k-f17-once",
+      "name": "F17 repeat=false 只触发一次",
+      "keys": [
+        "F17"
+      ],
+      "trigger": "down",
+      "repeat": false,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-F17>>D:\\kb-hook-test.log"
+      }
+    },
+    {
+      "id": "k-f18-repeat",
+      "name": "F18 repeat=true 可重复",
+      "keys": [
+        "F18"
+      ],
+      "trigger": "down",
+      "repeat": true,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-F18-REPEAT>>D:\\kb-hook-test.log"
+      }
+    },
+    {
+      "id": "k-http",
+      "name": "HTTP 触发目标",
+      "keys": [
+        "F24"
+      ],
+      "trigger": "down",
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo HIT-HTTP>>D:\\kb-hook-test.log"
+      }
+    }
+  ]
+}

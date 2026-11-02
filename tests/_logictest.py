@@ -11,8 +11,8 @@ import time
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 BASE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(BASE)   # keybridge.py 与配置所在的上一级目录
-sys.path.insert(0, ROOT)
+ROOT = os.path.dirname(BASE)              # 仓库根目录
+sys.path.insert(0, os.path.join(ROOT, "src"))   # keybridge.py 在 src/ 里
 
 import keybridge as kb  # noqa: E402
 
@@ -282,16 +282,17 @@ check("空字符串原样返回", ar._resolve(""), "")
 
 # ---------------------------------------------------------------- 10. 配置加载
 print("\n[10] 配置文件加载")
-for name in ("config.json", "_hooktest.json", "_selftest.json", "config.advanced.json"):
-    p = os.path.join(ROOT, name)
+for rel in ("examples/config.minimal.json", "examples/config.advanced.json",
+            "tests/fixtures/hooktest.json", "tests/fixtures/selftest.json"):
+    p = os.path.join(ROOT, rel.replace("/", os.sep))
     try:
         cfg = kb.load_config(p)
         hks = kb.build_hotkeys(cfg)
-        print("  %-18s 热键 %d 条  PASS" % (name, len(hks)))
-        PASS.append(name)
+        print("  %-32s 热键 %d 条  PASS" % (rel, len(hks)))
+        PASS.append(rel)
     except Exception as e:                                       # noqa: BLE001
-        print("  %-18s 失败: %s  FAIL" % (name, e))
-        FAIL.append(name)
+        print("  %-32s 失败: %s  FAIL" % (rel, e))
+        FAIL.append(rel)
 
 # ---------------------------------------------------------------- 汇总
 print("\n" + "=" * 78)

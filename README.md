@@ -165,7 +165,8 @@ keybridge/
 │   ├── _callbacktest.py   钩子回调单测（24 项，真实结构体）
 │   ├── _webuitest_run.py  控制台 API（35 项）
 │   ├── _webui_hot.py      热重载链路（14 项）
-│   └── _pagecheck.mjs     页面 JS 语法检查
+│   ├── _pagecheck.mjs     页面 JS 语法检查
+│   └── fixtures/          测试用配置文件（含各通道断言用热键）
 ├── docs/
 │   ├── USAGE.md           完整使用手册
 │   ├── PROJECT-NOTES.md   复盘 + 风险清单
@@ -178,14 +179,32 @@ keybridge/
 
 ## 测试
 
+前两个不需要起服务，直接跑：
+
 ```bash
-python tests/_logictest.py         # 36 项，不需要装钩子，纯逻辑
+python tests/_logictest.py         # 36 项，纯逻辑，不装钩子
 python tests/_callbacktest.py      # 24 项，直接喂真实 KBDLLHOOKSTRUCT
-python tests/_webuitest_run.py     # 35 项，控制台 API（要先起一个带 webui 的实例）
-node   tests/_pagecheck.mjs        # 页面 JS 语法 + 关键函数检查
+```
+
+控制台 API 与热重载链路要先把对应实例跑起来（两个用的是不同端口，可以同时开）：
+
+```bash
+# 终端 1：API 测试用的实例（8793）
+python src/keybridge.py -c tests/fixtures/webuitest.json
+
+# 终端 2：跑测试
+python tests/_webuitest_run.py     # 35 项
+node   tests/_pagecheck.mjs http://127.0.0.1:8793/    # 页面 JS 语法 + 关键函数
+```
+
+```bash
+# 热重载链路用的实例（8795）
+python src/keybridge.py -c tests/fixtures/prodtest.json
+python tests/_webui_hot.py 8795    # 14 项
 ```
 
 全部为纯标准库 / 零依赖，跑完打印「通过 N 项，失败 0 项」。
+测试会往 `D:\kb-test.log` 里追加内容，跑完可以删掉。
 
 ---
 
