@@ -1,0 +1,41 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+
+# ---- 运行期产物 ----
+logs/
+runtime/
+*-out.log
+*-err.log
+*.log
+
+# ---- 用户配置（仓库里只放示例）----
+config.json
+config.json.bak
+*.json.bak
+_selftest.json
+_hooktest.json
+_webuitest.json
+_prodtest.json
+_raretest.json
+
+# ---- 打包产物 ----
+dist/
+build/
+*.zip
+
+# ---- 编辑器 ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---- 测试残留 ----
+*.out
+*.report.json
+_dev/

@@ -1,0 +1,134 @@
+{
+  "_说明": "8 条可直接抄的实例。注意 F13 在多数键盘驱动里选不到，那几条默认停用，供有 AHK/宏键盘的人参考。",
+  "logFile": "logs/keybridge.log",
+  "logLevel": "INFO",
+  "webui": {
+    "enabled": true,
+    "port": 8765,
+    "openBrowser": false
+  },
+  "hotkeys": [
+    {
+      "id": "prtsc-launch-app",
+      "name": "PrtSc → 启动程序（快捷方式也行）",
+      "keys": [
+        "PRTSC"
+      ],
+      "swallow": true,
+      "action": {
+        "type": "run",
+        "program": "D:\\Apps\\MyApp.lnk"
+      }
+    },
+    {
+      "id": "scrolllock-cmd",
+      "name": "ScrollLock → 跑一条 cmd 命令",
+      "keys": [
+        "SCROLLLOCK"
+      ],
+      "swallow": true,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "start https://www.bilibili.com"
+      }
+    },
+    {
+      "id": "insert-powershell",
+      "name": "Insert → 跑一段 PowerShell",
+      "keys": [
+        "INSERT"
+      ],
+      "action": {
+        "type": "shell",
+        "shell": "powershell",
+        "command": "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('按键触发成功')"
+      }
+    },
+    {
+      "id": "pause-http-hook",
+      "name": "Pause → 打一个 HTTP 请求",
+      "keys": [
+        "PAUSE"
+      ],
+      "swallow": true,
+      "action": {
+        "type": "http",
+        "url": "http://127.0.0.1:8080/hook",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"event\":\"pause-key\"}"
+      }
+    },
+    {
+      "id": "end-sequence",
+      "name": "End → 串行做三件事",
+      "keys": [
+        "END"
+      ],
+      "action": {
+        "type": "sequence",
+        "steps": [
+          {
+            "type": "run",
+            "program": "notepad.exe",
+            "waitAfter": 1.5
+          },
+          {
+            "type": "keys",
+            "sequence": "hello from keybridge"
+          },
+          {
+            "type": "keys",
+            "keys": [
+              "ENTER"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ctrl-shift-o-opendir",
+      "name": "Ctrl+Shift+O → 打开目录",
+      "keys": [
+        "CTRL",
+        "SHIFT",
+        "O"
+      ],
+      "action": {
+        "type": "opendir",
+        "dir": "D:\\Downloads"
+      }
+    },
+    {
+      "id": "f13-inline-code",
+      "name": "F13 → 内联 Python（F13 需 AHK/宏键盘发出，Aula 选不到）",
+      "keys": [
+        "F13"
+      ],
+      "enabled": false,
+      "action": {
+        "type": "code",
+        "lang": "python",
+        "code": "import os\nd=os.path.join(os.environ['USERPROFILE'],'Desktop')\nos.startfile(d)"
+      }
+    },
+    {
+      "id": "scrolllock-long-notepad",
+      "name": "ScrollLock 长按 800ms → 记事本（短按不触发）",
+      "keys": [
+        "SCROLLLOCK"
+      ],
+      "trigger": "long",
+      "longpress_ms": 800,
+      "swallow": true,
+      "enabled": false,
+      "action": {
+        "type": "run",
+        "program": "notepad.exe"
+      }
+    }
+  ]
+}

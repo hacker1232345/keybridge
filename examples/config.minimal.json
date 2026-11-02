@@ -1,0 +1,97 @@
+{
+  "_说明": "最小可用配置。keys 写键名，trigger 可选 down/up/long，swallow=是否吞掉按键。键名按你驱动实际能选的键写。",
+  "logFile": "logs/keybridge.log",
+  "logLevel": "INFO",
+  "httpTrigger": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8765,
+    "token": ""
+  },
+  "webui": {
+    "enabled": true,
+    "port": 8765,
+    "openBrowser": false
+  },
+  "hotkeys": [
+    {
+      "id": "scrolllock-launch-app",
+      "name": "ScrollLock → 打开某个程序",
+      "keys": [
+        "SCROLLLOCK"
+      ],
+      "trigger": "down",
+      "swallow": true,
+      "action": {
+        "type": "run",
+        "program": "D:\\Apps\\MyApp.lnk"
+      }
+    },
+    {
+      "id": "pause-cmd",
+      "name": "Pause → 执行命令",
+      "keys": [
+        "PAUSE"
+      ],
+      "swallow": true,
+      "action": {
+        "type": "shell",
+        "shell": "cmd",
+        "command": "echo %date% %time% >> D:\\keybridge-test.log"
+      }
+    },
+    {
+      "id": "insert-code",
+      "name": "Insert → 运行内联代码",
+      "keys": [
+        "INSERT"
+      ],
+      "action": {
+        "type": "code",
+        "lang": "python",
+        "code": "import datetime\nprint('[py]', datetime.datetime.now())"
+      }
+    },
+    {
+      "id": "home-script",
+      "name": "Home → 运行脚本文件",
+      "keys": [
+        "HOME"
+      ],
+      "action": {
+        "type": "script",
+        "file": "scripts/demo.py",
+        "args": [
+          "hello"
+        ]
+      }
+    },
+    {
+      "id": "ctrl-alt-k-url",
+      "name": "Ctrl+Alt+K → 打开网址",
+      "keys": [
+        "CTRL",
+        "ALT",
+        "K"
+      ],
+      "action": {
+        "type": "url",
+        "url": "https://www.bilibili.com"
+      }
+    },
+    {
+      "id": "apps-long",
+      "name": "菜单键长按 800ms → 打开下载目录",
+      "keys": [
+        "APPS"
+      ],
+      "trigger": "long",
+      "longpress_ms": 800,
+      "enabled": false,
+      "action": {
+        "type": "opendir",
+        "dir": "D:\\Downloads"
+      }
+    }
+  ]
+}

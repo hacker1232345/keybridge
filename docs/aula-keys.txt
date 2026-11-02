@@ -1,0 +1,137 @@
+Aula Hub 改键页可选键全表
+========================================================================
+表来源：DEdNpXFo.js(UI) 114 条 / BS844IfY.js 114 条 / 合并 114 条
+F13–F24 在上面哪张表里？ 都没有
+========================================================================
+Aula 里的名字          HID 码    keybridge 写法  
+------------------------------------------------------------------------
+ContextMenu        0x01     APPS          
+ControlLeft        0x01     LCTRL         
+ShiftLeft          0x02     LSHIFT        
+AltLeft            0x04     LALT          
+KeyA               0x04     A             
+KeyB               0x05     B             
+KeyC               0x06     C             
+KeyD               0x07     D             
+KeyE               0x08     E             
+MetaLeft           0x08     LWIN          
+KeyF               0x09     F             
+KeyG               0x0A     G             
+KeyH               0x0B     H             
+KeyI               0x0C     I             
+KeyJ               0x0D     J             
+KeyK               0x0E     K             
+KeyL               0x0F     L             
+ControlRight       0x10     RCTRL         
+KeyM               0x10     M             
+KeyN               0x11     N             
+KeyO               0x12     O             
+KeyP               0x13     P             
+KeyQ               0x14     Q             
+KeyR               0x15     R             
+KeyS               0x16     S             
+KeyT               0x17     T             
+KeyU               0x18     U             
+KeyV               0x19     V             
+KeyW               0x1A     W             
+KeyX               0x1B     X             
+KeyY               0x1C     Y             
+KeyZ               0x1D     Z             
+Digit1             0x1E     1             
+Digit2             0x1F     2             
+Digit3             0x20     3             
+ShiftRight         0x20     RSHIFT        
+Digit4             0x21     4             
+Digit5             0x22     5             
+Digit6             0x23     6             
+Digit7             0x24     7             
+Digit8             0x25     8             
+Digit9             0x26     9             
+Digit0             0x27     0             
+Enter              0x28     ENTER         
+Escape             0x29     ESC           
+Backspace          0x2A     BACKSPACE     
+Tab                0x2B     TAB           
+Space              0x2C     SPACE         
+Minus              0x2D     -             
+Equal              0x2E     =             
+BracketLeft        0x2F     [             
+BracketRight       0x30     ]             
+Backslash          0x31     \             
+Backslash2         0x32     (未映射)         
+Semicolon          0x33     ;             
+Quote              0x34     '             
+Backquote          0x35     `             
+Comma              0x36     (未映射)         
+Period             0x37     (未映射)         
+Slash              0x38     (未映射)         
+CapsLock           0x39     CAPSLOCK      
+F1                 0x3A     F1            
+F2                 0x3B     F2            
+F3                 0x3C     F3            
+F4                 0x3D     F4            
+F5                 0x3E     F5            
+F6                 0x3F     F6            
+AltRight           0x40     RALT          
+F7                 0x40     F7            
+F8                 0x41     F8            
+F9                 0x42     F9            
+F10                0x43     F10           
+F11                0x44     F11           
+F12                0x45     F12           
+PrintScreen        0x46     PRTSC         
+ScrollLock         0x47     SCROLLLOCK    
+Pause              0x48     PAUSE         
+Insert             0x49     INSERT        
+Home               0x4A     HOME          
+PageUp             0x4B     PAGEUP        
+Delete             0x4C     DELETE        
+End                0x4D     END           
+PageDown           0x4E     PAGEDOWN      
+ArrowRight         0x4F     RIGHT         
+ArrowLeft          0x50     LEFT          
+ArrowDown          0x51     DOWN          
+ArrowUp            0x52     UP            
+NumLock            0x53     NUMLOCK       
+NumpadDivide       0x54     NUMDIV        
+NumpadMultiply     0x55     NUMMUL        
+NumpadSubtract     0x56     NUMSUB        
+NumpadAdd          0x57     NUMADD        
+NumpadEnter        0x58     NUMENTER      
+Numpad1            0x59     NUM1          
+Numpad2            0x5A     NUM2          
+Numpad3            0x5B     NUM3          
+Numpad4            0x5C     NUM4          
+Numpad5            0x5D     NUM5          
+Numpad6            0x5E     NUM6          
+Numpad7            0x5F     NUM7          
+Numpad8            0x60     NUM8          
+Numpad9            0x61     NUM9          
+Numpad0            0x62     NUM0          
+NumpadDecimal      0x63     NUMDEC        
+IntlBackslash      0x64     (未映射)         
+Apps               0x65     APPS          
+MetaRight          0x80     RWIN          
+IntlRo             0x87     (未映射)         
+KanaMode           0x88     (未映射)         
+IntlYen            0x89     (未映射)         
+Convert            0x8A     (未映射)         
+NonConvert         0x8B     (未映射)         
+Hangul             0x90     (未映射)         
+HangulHanja        0x91     (未映射)         
+
+未映射的 12 个（keybridge 键名可能要自己试）：Backslash2, Comma, Period, Slash, IntlBackslash, IntlRo, KanaMode, IntlYen, Convert, NonConvert, Hangul, HangulHanja
+
+========================================================================
+推荐拿来做触发的键（Aula 能选 + 平时几乎不按）
+------------------------------------------------------------------------
+  SCROLLLOCK   绝大多数游戏/软件不用
+  PAUSE        同上
+  INSERT       几乎没人用
+  PRTSC        改掉后系统截图归你管
+  APPS         菜单键，很少按
+  NUMLOCK      注意会影响小键盘
+  HOME         文本编辑里有用，看场景
+  END          同上
+
+注意 F1–F12 虽然能选，但游戏/软件里常被占用，慎用。
